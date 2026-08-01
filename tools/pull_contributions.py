@@ -1,66 +1,60 @@
 import sys
 import os
 import json
-import httpx
+import re
+import urllib.request
+import urllib.error
 from datetime import datetime, timezone, timedelta
-from bs4 import BeautifulSoup
 
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 
-def fetch_contributions(username="arnav-jain700", output_path="assets/contributions.json"):
-    url = f"https://github.com/users/{username}/contributions"
-    headers = {"User-Agent": USER_AGENT}
-    
-    print(f"Fetching contribution data for '{username}' from {url}...")
-    try:
-        response = httpx.get(url, headers=headers, follow_redirects=True, timeout=15.0)
-        response.raise_for_status()
-        html_content = response.text
-    except Exception as e:
-        print(f"Error fetching contributions: {e}")
-        return generate_fallback_contributions(username, output_path)
-
-    soup = BeautifulSoup(html_content, "lxml")
+def parse_contributions_html(html_content):
     days_data = []
-
-    # Modern GitHub uses td or rect elements with class "ContributionCalendar-day" or data-date
-    elements = soup.find_all(lambda tag: tag.name in ["td", "rect"] and tag.has_attr("data-date"))
-
-    if not elements:
-        print("Warning: Could not find elements with data-date. Trying fallback parser...")
-        elements = soup.select(".ContributionCalendar-day")
-
-    for el in elements:
-        date_str = el.get("data-date")
-        if not date_str:
+    # Match both <td ... data-date="..." data-level="..."> and <rect ...>
+    pattern = re.compile(r'(?:<td|<rect)[^>]*?data-date="(?P<date>\d{4}-\d{2}-\d{2})"[^>]*?>', re.IGNORECASE | re.DOTALL)
+    
+    for match in pattern.finditer(html_content):
+        tag_str = match.group(0)
+        date_m = re.search(r'data-date="(\d{4}-\d{2}-\d{2})"', tag_str)
+        if not date_m:
             continue
-            
-        level_str = el.get("data-level", "0")
-        try:
-            level = int(level_str)
-        except ValueError:
-            level = 0
-            
-        count_str = el.get("data-count")
-        if count_str is not None:
-            try:
-                count = int(count_str)
-            except ValueError:
-                count = level * 2
+        date_str = date_m.group(1)
+        
+        level_m = re.search(r'data-level="(\d+)"', tag_str)
+        level = int(level_m.group(1)) if level_m else 0
+        
+        count_m = re.search(r'data-count="(\d+)"', tag_str)
+        if count_m:
+            count = int(count_m.group(1))
         else:
             count_map = {0: 0, 1: 1, 2: 3, 3: 6, 4: 10}
             count = count_map.get(level, level)
-
+            
         days_data.append({
             "date": date_str,
             "count": count,
             "level": level
         })
-
+        
     days_data.sort(key=lambda x: x["date"])
+    return days_data
+
+def fetch_contributions(username="arnav-jain700", output_path="assets/contributions.json"):
+    url = f"https://github.com/users/{username}/contributions"
+    headers = {"User-Agent": USER_AGENT}
+    req = urllib.request.Request(url, headers=headers)
+    
+    print(f"Fetching contribution data for '{username}' from {url}...")
+    try:
+        with urllib.request.urlopen(req, timeout=15.0) as resp:
+            html_content = resp.read().decode("utf-8")
+        days_data = parse_contributions_html(html_content)
+    except Exception as e:
+        print(f"Error fetching contributions: {e}")
+        return generate_fallback_contributions(username, output_path)
 
     if not days_data:
-        print("Warning: Parsed 0 day cells. Generating fallback calendar...")
+        print("Warning: Parsed 0 day cells from HTML. Generating fallback dataset...")
         return generate_fallback_contributions(username, output_path)
 
     total_contributions = sum(d["count"] for d in days_data)

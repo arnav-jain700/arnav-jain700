@@ -1,8 +1,8 @@
-name: Refresh contribution graph
+name: Refresh contribution graph & activity
 
 on:
   schedule:
-    - cron: "0 5 * * *" # once a day, early morning UTC
+    - cron: "0 5 * * *" # once a day, 05:00 UTC
   workflow_dispatch: {}
 
 permissions:
@@ -24,7 +24,11 @@ jobs:
 
       - run: python tools/render_graph.py assets/contributions.json graph.svg
 
+      - run: python tools/render_panel.py sysinfo.svg
+
+      - run: python tools/pull_activity.py arnav-jain700 README.md
+
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "auto: refresh contribution graph [skip ci]"
-          file_pattern: "assets/contributions.json graph.svg"
+          commit_message: "auto: refresh contribution graph & activity [skip ci]"
+          file_pattern: "assets/contributions.json graph.svg sysinfo.svg README.md"
