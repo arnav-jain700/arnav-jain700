@@ -6,15 +6,9 @@
 <br><br>
 
 <h3><code>$ whoami --verbose</code></h3>
-<table>
-<tr>
-<td valign="top" align="center">
-<img src="./portrait.svg" width="360" alt="ASCII Portrait" />
-</td>
-<td valign="top" align="center">
-<img src="./sysinfo.svg" width="460" alt="System Info Panel" />
-</td>
-</tr>
-</table>
+<p align="center">
+  <img src="./portrait.svg" width="350" alt="ASCII Portrait" />
+  <img src="./sysinfo.svg" width="420" alt="System Info Panel" />
+</p>
 
 </div>

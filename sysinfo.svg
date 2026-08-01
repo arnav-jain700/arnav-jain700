@@ -1,51 +1,55 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 232" width="460" height="232">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 208" width="420" height="208">
   <style>
     .bg { fill: #0d1117; stroke: #30363d; stroke-width: 1px; rx: 10px; }
     .header-bg { fill: #161b22; rx: 10px; }
     .btn-red { fill: #ff5f56; }
     .btn-yellow { fill: #ffbd2e; }
     .btn-green { fill: #27c93f; }
-    .title { font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: #8b949e; font-weight: 600; }
-    .label { font-family: "Fira Code", monospace, sans-serif; font-size: 13px; fill: #8b949e; font-weight: 500; }
-    .value { font-family: "Fira Code", monospace, sans-serif; font-size: 13px; fill: #c9d1d9; font-weight: 400; }
-    .prompt { font-family: "Fira Code", monospace, sans-serif; font-size: 13px; fill: #38bdf8; font-weight: 600; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
-    .anim-row { animation: fadeIn 0.4s ease-out forwards; opacity: 0; }
+    .title { font-family: "Fira Code", monospace, sans-serif; font-size: 11px; fill: #8b949e; font-weight: 600; }
+    .label { font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: #8b949e; font-weight: 500; }
+    .value { font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: #e6edf3; font-weight: 500; }
+    .prompt { font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: #38bdf8; font-weight: 700; }
   </style>
   <rect width="100%" height="100%" class="bg"/>
-  <path d="M 0,10 A 10,10 0 0 1 10,0 L 450,0 A 10,10 0 0 1 460,10 L 460,36 L 0,36 Z" class="header-bg"/>
-  <circle cx="20" cy="18" r="6" class="btn-red"/>
-  <circle cx="38" cy="18" r="6" class="btn-yellow"/>
-  <circle cx="56" cy="18" r="6" class="btn-green"/>
-  <text x="230.0" y="22" text-anchor="middle" class="title">arnav-jain700@terminal:~ (sysinfo)</text>
-  <g class="anim-row" style="animation-delay: 0.10s;">
-    <text x="24" y="66" class="prompt">❯</text>
-    <text x="42" y="66" class="label">user:</text>
-    <text x="119" y="66" class="value">arnav-jain700</text>
+  <path d="M 0,10 A 10,10 0 0 1 10,0 L 410,0 A 10,10 0 0 1 420,10 L 420,32 L 0,32 Z" class="header-bg"/>
+  <circle cx="18" cy="16" r="5" class="btn-red"/>
+  <circle cx="32" cy="16" r="5" class="btn-yellow"/>
+  <circle cx="46" cy="16" r="5" class="btn-green"/>
+  <text x="210.0" y="20" text-anchor="middle" class="title">arnav-jain700@terminal:~ (sysinfo)</text>
+  <g>
+    <animate attributeName="opacity" values="0;1" dur="0.25s" begin="0.05s" fill="freeze"/>
+    <text x="20" y="62" class="prompt">❯</text>
+    <text x="36" y="62" class="label">user:</text>
+    <text x="105" y="62" class="value">arnav-jain700</text>
   </g>
-  <g class="anim-row" style="animation-delay: 0.25s;">
-    <text x="24" y="92" class="prompt">❯</text>
-    <text x="42" y="92" class="label">role:</text>
-    <text x="119" y="92" class="value">Software Engineer</text>
+  <g>
+    <animate attributeName="opacity" values="0;1" dur="0.25s" begin="0.17s" fill="freeze"/>
+    <text x="20" y="86" class="prompt">❯</text>
+    <text x="36" y="86" class="label">role:</text>
+    <text x="105" y="86" class="value">Software Engineer</text>
   </g>
-  <g class="anim-row" style="animation-delay: 0.40s;">
-    <text x="24" y="118" class="prompt">❯</text>
-    <text x="42" y="118" class="label">focus:</text>
-    <text x="119" y="118" class="value">Full-Stack Development · AI Systems</text>
+  <g>
+    <animate attributeName="opacity" values="0;1" dur="0.25s" begin="0.29s" fill="freeze"/>
+    <text x="20" y="110" class="prompt">❯</text>
+    <text x="36" y="110" class="label">focus:</text>
+    <text x="105" y="110" class="value">Full-Stack Development · AI Systems</text>
   </g>
-  <g class="anim-row" style="animation-delay: 0.55s;">
-    <text x="24" y="144" class="prompt">❯</text>
-    <text x="42" y="144" class="label">stack:</text>
-    <text x="119" y="144" class="value">Python · JavaScript/TypeScript · React · C++</text>
+  <g>
+    <animate attributeName="opacity" values="0;1" dur="0.25s" begin="0.41s" fill="freeze"/>
+    <text x="20" y="134" class="prompt">❯</text>
+    <text x="36" y="134" class="label">stack:</text>
+    <text x="105" y="134" class="value">Python · TypeScript · React · C++</text>
   </g>
-  <g class="anim-row" style="animation-delay: 0.70s;">
-    <text x="24" y="170" class="prompt">❯</text>
-    <text x="42" y="170" class="label">now:</text>
-    <text x="119" y="170" class="value">Building a Living Terminal GitHub Profile</text>
+  <g>
+    <animate attributeName="opacity" values="0;1" dur="0.25s" begin="0.53s" fill="freeze"/>
+    <text x="20" y="158" class="prompt">❯</text>
+    <text x="36" y="158" class="label">now:</text>
+    <text x="105" y="158" class="value">Building Living Terminal GitHub Profile</text>
   </g>
-  <g class="anim-row" style="animation-delay: 0.85s;">
-    <text x="24" y="196" class="prompt">❯</text>
-    <text x="42" y="196" class="label">status:</text>
-    <text x="119" y="196" class="value">⚡ Active & Building</text>
+  <g>
+    <animate attributeName="opacity" values="0;1" dur="0.25s" begin="0.65s" fill="freeze"/>
+    <text x="20" y="182" class="prompt">❯</text>
+    <text x="36" y="182" class="label">status:</text>
+    <text x="105" y="182" class="value">⚡ Active & Open for Collaboration</text>
   </g>
 </svg>

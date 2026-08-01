@@ -3,8 +3,7 @@ import os
 import json
 from datetime import datetime
 
-# Color palette: cyan/blue dark terminal theme as specified in document step 5b
-LEVELS = ["#1a1a2e", "#16537e", "#1c7ed6", "#4dabf7", "#a5d8ff"]
+LEVELS = ["#161a2e", "#16537e", "#1c7ed6", "#4dabf7", "#a5d8ff"]
 
 def render_graph(json_path="assets/contributions.json", output_path="graph.svg"):
     if not os.path.exists(json_path):
@@ -21,7 +20,6 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
     busiest_day = data.get("busiest_day", "N/A")
     username = data.get("username", "arnav-jain700")
 
-    # Dimensions
     cell_size = 11.5
     cell_gap = 3.5
     cell_step = cell_size + cell_gap
@@ -29,7 +27,6 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
     header_height = 42
     footer_height = 34
     
-    # Calculate weeks (52-53 weeks)
     num_weeks = (len(days) + 6) // 7
     width = int(padding_x * 2 + num_weeks * cell_step)
     height = int(header_height + 7 * cell_step + footer_height)
@@ -45,15 +42,6 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
     svg.append(f'    .bg {{ fill: {bg_color}; stroke: {border_color}; stroke-width: 1px; rx: 10px; }}')
     svg.append(f'    .title {{ font-family: "Fira Code", monospace, sans-serif; font-size: 13px; fill: {accent_color}; font-weight: 600; }}')
     svg.append(f'    .meta {{ font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: {text_color}; font-weight: 400; }}')
-    svg.append(f'    .stat-label {{ font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: #c9d1d9; font-weight: 500; }}')
-    svg.append(f'    .stat-val {{ font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: {accent_color}; font-weight: 600; }}')
-    
-    # Column wave animation
-    for w in range(num_weeks):
-        delay = w * 0.025
-        svg.append(f'    @keyframes wave-{w} {{ 0% {{ transform: scale(0.3); opacity: 0; }} 70% {{ transform: scale(1.1); }} 100% {{ transform: scale(1); opacity: 1; }} }}')
-        svg.append(f'    .col-{w} {{ animation: wave-{w} 0.3s ease-out forwards; animation-delay: {delay:.3f}s; opacity: 0; transform-origin: center; }}')
-        
     svg.append('  </style>')
     
     # Background
@@ -63,7 +51,7 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
     header_text = f"$ cat contributions.log --user={username}"
     svg.append(f'  <text x="{padding_x}" y="26" class="title">❯ {header_text}</text>')
     
-    # Render grid cells organized by week & day
+    # Grid cells
     grid_y_start = header_height + 5
     
     for i, d in enumerate(days):
@@ -80,8 +68,10 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
         date_str = d.get("date", "")
         count = d.get("count", 0)
         tooltip = f"{count} contributions on {date_str}"
+        delay = week_idx * 0.015
         
-        svg.append(f'  <rect x="{x:.1f}" y="{y:.1f}" width="{cell_size}" height="{cell_size}" rx="2" fill="{color}" class="col-{week_idx}">')
+        svg.append(f'  <rect x="{x:.1f}" y="{y:.1f}" width="{cell_size}" height="{cell_size}" rx="2" fill="{color}">')
+        svg.append(f'    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="{delay:.3f}s" fill="freeze"/>')
         svg.append(f'    <title>{tooltip}</title>')
         svg.append(f'  </rect>')
         

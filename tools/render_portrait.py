@@ -3,25 +3,33 @@ import os
 import numpy as np
 from PIL import Image
 
-GLYPHS = " '.,:;~+*xXO#"
+# Ramp from dense/dark to light/empty
+GLYPHS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 
-def image_to_ascii(image_path, width=64, aspect_ratio=0.55):
+def image_to_ascii(image_path, width=50, aspect_ratio=0.52):
     img = Image.open(image_path).convert("L")
     w_orig, h_orig = img.size
     height = int(width * (h_orig / w_orig) * aspect_ratio)
     
     img_resized = img.resize((width, height), Image.Resampling.LANCZOS)
-    pixels = np.array(img_resized).flatten()
+    pixels = np.array(img_resized)
     
+    # Auto contrast adjustment
+    p_min, p_max = pixels.min(), pixels.max()
+    if p_max > p_min:
+        pixels = ((pixels - p_min) / (p_max - p_min) * 255).astype(np.uint8)
+
     lines = []
     ramp_len = len(GLYPHS)
     for y in range(height):
         row_chars = []
         for x in range(width):
-            val = pixels[y * width + x]
-            idx = int((255 - val) / 255 * (ramp_len - 1))
+            val = pixels[y, x]
+            # Map dark pixels (0) to dense glyphs, bright pixels (255) to empty
+            idx = int(val / 255 * (ramp_len - 1))
             idx = max(0, min(ramp_len - 1, idx))
             char = GLYPHS[idx]
+            
             if char == " ":
                 row_chars.append("&#160;")
             elif char == "<":
@@ -39,52 +47,61 @@ def image_to_ascii(image_path, width=64, aspect_ratio=0.55):
         lines.append("".join(row_chars))
     return lines
 
-def generate_svg(ascii_lines, output_path="portrait.svg", accent_color="#38bdf8", bg_color="#0d1117"):
+def generate_svg(ascii_lines, output_path="portrait.svg", accent_color="#38bdf8", bg_color="#0d1117", border_color="#30363d"):
     num_rows = len(ascii_lines)
     num_cols = len(ascii_lines[0]) if num_rows > 0 else 0
     
-    font_size = 10
-    char_width = 6.0
-    line_height = 11.5
-    padding = 16
+    font_size = 9.5
+    char_width = 5.8
+    line_height = 10.8
+    padding_x = 18
+    padding_y = 18
+    header_h = 32
     
-    svg_width = int(num_cols * char_width + padding * 2)
-    svg_height = int(num_rows * line_height + padding * 2)
+    content_w = num_cols * char_width
+    content_h = num_rows * line_height
     
-    row_delay_ms = 35
-    anim_duration_sec = 0.4
+    svg_width = int(content_w + padding_x * 2)
+    svg_height = int(content_h + padding_y * 2 + header_h)
     
-    svg_parts = []
-    svg_parts.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_width} {svg_height}" width="{svg_width}" height="{svg_height}">')
-    svg_parts.append('  <style>')
-    svg_parts.append(f'    .bg {{ fill: {bg_color}; rx: 8px; }}')
-    svg_parts.append(f'    .ascii-text {{ font-family: "Fira Code", "Courier New", monospace; font-size: {font_size}px; fill: {accent_color}; font-weight: 500; xml:space: preserve; }}')
-    svg_parts.append('  </style>')
+    svg = []
+    svg.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_width} {svg_height}" width="{svg_width}" height="{svg_height}">')
+    svg.append('  <style>')
+    svg.append(f'    .bg {{ fill: {bg_color}; stroke: {border_color}; stroke-width: 1px; rx: 10px; }}')
+    svg.append(f'    .header-bg {{ fill: #161b22; rx: 10px; }}')
+    svg.append('    .btn-red { fill: #ff5f56; }')
+    svg.append('    .btn-yellow { fill: #ffbd2e; }')
+    svg.append('    .btn-green { fill: #27c93f; }')
+    svg.append(f'    .title {{ font-family: "Fira Code", monospace, sans-serif; font-size: 11px; fill: #8b949e; font-weight: 600; }}')
+    svg.append(f'    .ascii-text {{ font-family: "Fira Code", "Courier New", monospace; font-size: {font_size}px; fill: {accent_color}; font-weight: 600; xml:space: preserve; }}')
+    svg.append('  </style>')
     
-    svg_parts.append(f'  <rect width="100%" height="100%" class="bg"/>')
+    # Outer frame & header
+    svg.append(f'  <rect width="100%" height="100%" class="bg"/>')
+    svg.append(f'  <path d="M 0,10 A 10,10 0 0 1 10,0 L {svg_width-10},0 A 10,10 0 0 1 {svg_width},10 L {svg_width},{header_h} L 0,{header_h} Z" class="header-bg"/>')
     
-    svg_parts.append('  <defs>')
-    for i in range(num_rows):
-        clip_id = f"row-clip-{i}"
-        start_time = (i * row_delay_ms) / 1000.0
-        svg_parts.append(f'    <clipPath id="{clip_id}">')
-        svg_parts.append(f'      <rect x="0" y="0" width="0" height="{svg_height}">')
-        svg_parts.append(f'        <animate attributeName="width" from="0" to="{svg_width}" begin="{start_time:.3f}s" dur="{anim_duration_sec}s" fill="freeze" calcMode="spline" keySplines="0.4 0 0.2 1"/>')
-        svg_parts.append(f'      </rect>')
-        svg_parts.append(f'    </clipPath>')
-    svg_parts.append('  </defs>')
+    # Traffic light buttons
+    svg.append('  <circle cx="18" cy="16" r="5" class="btn-red"/>')
+    svg.append('  <circle cx="32" cy="16" r="5" class="btn-yellow"/>')
+    svg.append('  <circle cx="46" cy="16" r="5" class="btn-green"/>')
+    svg.append(f'  <text x="{svg_width/2}" y="20" text-anchor="middle" class="title">portrait.ascii</text>')
     
-    svg_parts.append('  <g class="ascii-text">')
+    # Text group
+    svg.append('  <g class="ascii-text">')
+    y_start = header_h + padding_y
     for i, line in enumerate(ascii_lines):
-        y_pos = padding + (i + 1) * line_height - 2
-        clip_id = f"row-clip-{i}"
-        svg_parts.append(f'    <text x="{padding}" y="{y_pos:.1f}" clip-path="url(#{clip_id})">{line}</text>')
-    svg_parts.append('  </g>')
-    svg_parts.append('</svg>')
+        y_pos = y_start + (i + 1) * line_height - 2
+        start_delay = i * 0.03
+        svg.append(f'    <text x="{padding_x}" y="{y_pos:.1f}">')
+        svg.append(f'      <animate attributeName="opacity" values="0;1" dur="0.2s" begin="{start_delay:.2f}s" fill="freeze"/>')
+        svg.append(f'      {line}')
+        svg.append(f'    </text>')
+    svg.append('  </g>')
+    svg.append('</svg>')
     
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(svg_parts))
+        f.write("\n".join(svg))
         
     print(f"Generated portrait SVG successfully: {output_path}")
 
@@ -96,5 +113,5 @@ if __name__ == "__main__":
         print(f"Error: {img_path} not found. Please run clean_photo.py first.")
         sys.exit(1)
         
-    ascii_art = image_to_ascii(img_path, width=54)
+    ascii_art = image_to_ascii(img_path, width=48)
     generate_svg(ascii_art, output_path=out_svg)

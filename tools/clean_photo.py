@@ -10,33 +10,30 @@ def clean_photo(input_path="assets/my-photo.png", output_path="assets/photo-read
         sys.exit(1)
 
     print(f"Loading image from {input_path}...")
-    img = Image.open(input_path).convert("RGBA")
-
-    # Step 1: Crop center/subject region if image is large
+    img = Image.open(input_path).convert("RGB")
     w, h = img.size
-    # Focus on upper torso / face area
-    crop_box = (int(w * 0.1), int(h * 0.05), int(w * 0.9), int(h * 0.95))
-    cropped = img.crop(crop_box)
 
-    # Step 2: Composite onto white background
-    white_bg = Image.new("RGBA", cropped.size, (255, 255, 255, 255))
-    composite = Image.alpha_composite(white_bg, cropped).convert("RGB")
+    # Crop tightly around face and upper body (center crop)
+    # The photo is a selfie: face is in upper-center
+    crop_left = int(w * 0.22)
+    crop_top = int(h * 0.25)
+    crop_right = int(w * 0.85)
+    crop_bottom = int(h * 0.90)
+    
+    cropped = img.crop((crop_left, crop_top, crop_right, crop_bottom))
 
-    # Step 3: OpenCV LAB CLAHE contrast enhancement
-    cv_img = cv2.cvtColor(np.array(composite), cv2.COLOR_RGB2BGR)
+    # Convert to OpenCV image (BGR)
+    cv_img = cv2.cvtColor(np.array(cropped), cv2.COLOR_RGB2BGR)
 
-    # Equalize L channel
-    lab = cv2.cvtColor(cv_img, cv2.COLOR_BGR2LAB)
-    l, a, b = cv2.split(lab)
+    # Convert to Grayscale
+    gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
 
+    # Apply CLAHE (Contrast Limited Adaptive Histogram Equalization)
     clahe = cv2.createCLAHE(clipLimit=4.0, tileGridSize=(8, 8))
-    cl = clahe.apply(l)
+    equalized = clahe.apply(gray)
 
-    limg = cv2.merge((cl, a, b))
-    enhanced_bgr = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
-    enhanced_rgb = cv2.cvtColor(enhanced_bgr, cv2.COLOR_BGR2RGB)
-
-    final_pil = Image.fromarray(enhanced_rgb)
+    # Convert back to PIL Image
+    final_pil = Image.fromarray(equalized)
 
     os.makedirs(os.path.dirname(os.path.abspath(output_path)), exist_ok=True)
     final_pil.save(output_path)
