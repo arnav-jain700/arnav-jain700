@@ -13,12 +13,11 @@ def clean_photo(input_path="assets/my-photo.png", output_path="assets/photo-read
     img = Image.open(input_path).convert("RGB")
     w, h = img.size
 
-    # Crop tightly around face and upper body (center crop)
-    # The photo is a selfie: face is in upper-center
-    crop_left = int(w * 0.22)
-    crop_top = int(h * 0.25)
+    # Crop focus area (head and torso)
+    crop_left = int(w * 0.20)
+    crop_top = int(h * 0.15)
     crop_right = int(w * 0.85)
-    crop_bottom = int(h * 0.90)
+    crop_bottom = int(h * 0.95)
     
     cropped = img.crop((crop_left, crop_top, crop_right, crop_bottom))
 
@@ -28,9 +27,12 @@ def clean_photo(input_path="assets/my-photo.png", output_path="assets/photo-read
     # Convert to Grayscale
     gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
 
-    # Apply CLAHE (Contrast Limited Adaptive Histogram Equalization)
-    clahe = cv2.createCLAHE(clipLimit=4.0, tileGridSize=(8, 8))
-    equalized = clahe.apply(gray)
+    # Bilateral filter to smooth noise while preserving sharp facial edges
+    smoothed = cv2.bilateralFilter(gray, 9, 75, 75)
+
+    # Apply CLAHE for high contrast details
+    clahe = cv2.createCLAHE(clipLimit=4.5, tileGridSize=(8, 8))
+    equalized = clahe.apply(smoothed)
 
     # Convert back to PIL Image
     final_pil = Image.fromarray(equalized)

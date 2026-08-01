@@ -1,14 +1,15 @@
 <div align="center">
 
-<h3><code>$ cat contributions.log</code></h3>
-<img src="./graph.svg" width="820" alt="GitHub Contribution Graph" />
+<img src="./graph.svg" width="860" alt="GitHub Contribution Graph" />
 
 <br><br>
 
-<h3><code>$ whoami --verbose</code></h3>
+<h3><code>arnav-jain700@github ~ $ whoami</code></h3>
+
 <p align="center">
-  <img src="./portrait.svg" width="350" alt="ASCII Portrait" />
-  <img src="./sysinfo.svg" width="420" alt="System Info Panel" />
+  <img src="./portrait.svg" width="440" alt="ASCII Portrait Terminal" />
+  &nbsp;
+  <img src="./sysinfo.svg" width="480" alt="Neofetch Terminal Panel" />
 </p>
 
 </div>

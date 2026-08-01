@@ -3,7 +3,8 @@ import os
 import json
 from datetime import datetime
 
-LEVELS = ["#161a2e", "#16537e", "#1c7ed6", "#4dabf7", "#a5d8ff"]
+# GitHub classic green palette as shown in Image 2
+LEVELS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
 
 def render_graph(json_path="assets/contributions.json", output_path="graph.svg"):
     if not os.path.exists(json_path):
@@ -15,51 +16,65 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
         
     days = data.get("days", [])
     total_contribs = data.get("total_contributions", 0)
-    current_streak = data.get("current_streak", 0)
-    longest_streak = data.get("longest_streak", 0)
-    busiest_day = data.get("busiest_day", "N/A")
     username = data.get("username", "arnav-jain700")
 
     cell_size = 11.5
     cell_gap = 3.5
     cell_step = cell_size + cell_gap
-    padding_x = 24
-    header_height = 42
-    footer_height = 34
+    
+    padding_left = 42
+    padding_top = 32
+    padding_right = 24
+    footer_height = 36
     
     num_weeks = (len(days) + 6) // 7
-    width = int(padding_x * 2 + num_weeks * cell_step)
-    height = int(header_height + 7 * cell_step + footer_height)
+    width = int(padding_left + num_weeks * cell_step + padding_right)
+    height = int(padding_top + 7 * cell_step + footer_height)
     
     bg_color = "#0d1117"
     border_color = "#30363d"
     text_color = "#8b949e"
-    accent_color = "#38bdf8"
+    white_text = "#ffffff"
     
     svg = []
     svg.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width} {height}" width="{width}" height="{height}">')
     svg.append('  <style>')
     svg.append(f'    .bg {{ fill: {bg_color}; stroke: {border_color}; stroke-width: 1px; rx: 10px; }}')
-    svg.append(f'    .title {{ font-family: "Fira Code", monospace, sans-serif; font-size: 13px; fill: {accent_color}; font-weight: 600; }}')
-    svg.append(f'    .meta {{ font-family: "Fira Code", monospace, sans-serif; font-size: 12px; fill: {text_color}; font-weight: 400; }}')
+    svg.append(f'    .axis-text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10px; fill: {text_color}; font-weight: 500; }}')
+    svg.append(f'    .total-text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: {white_text}; font-weight: 700; }}')
     svg.append('  </style>')
     
     # Background
     svg.append(f'  <rect width="100%" height="100%" class="bg"/>')
     
-    # Header
-    header_text = f"$ cat contributions.log --user={username}"
-    svg.append(f'  <text x="{padding_x}" y="26" class="title">❯ {header_text}</text>')
+    # Day axis labels on left (Mon, Wed, Fri)
+    day_labels = [("Mon", 1), ("Wed", 3), ("Fri", 5)]
+    for label, day_idx in day_labels:
+        y_pos = padding_top + day_idx * cell_step + 9
+        svg.append(f'  <text x="{padding_left - 10}" y="{y_pos:.1f}" text-anchor="end" class="axis-text">{label}</text>')
+
+    # Month axis labels on top
+    month_names = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    last_month = None
     
-    # Grid cells
-    grid_y_start = header_height + 5
-    
+    for i in range(0, len(days), 7):
+        week_idx = i // 7
+        date_str = days[i].get("date", "")
+        if date_str:
+            dt = datetime.strptime(date_str, "%Y-%m-%d")
+            m_name = month_names[dt.month - 1]
+            if m_name != last_month:
+                x_pos = padding_left + week_idx * cell_step
+                svg.append(f'  <text x="{x_pos:.1f}" y="{padding_top - 10}" class="axis-text">{m_name}</text>')
+                last_month = m_name
+
+    # Render grid cells
     for i, d in enumerate(days):
         week_idx = i // 7
         day_idx = i % 7
         
-        x = padding_x + week_idx * cell_step
-        y = grid_y_start + day_idx * cell_step
+        x = padding_left + week_idx * cell_step
+        y = padding_top + day_idx * cell_step
         
         level = d.get("level", 0)
         level = max(0, min(4, level))
@@ -75,18 +90,10 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
         svg.append(f'    <title>{tooltip}</title>')
         svg.append(f'  </rect>')
         
-    # Footer Stats Summary
-    footer_y = height - 14
-    stats_str = f"Total: {total_contribs}  |  Current Streak: {current_streak} days  |  Longest: {longest_streak} days  |  Peak: {busiest_day}s"
-    svg.append(f'  <text x="{padding_x}" y="{footer_y}" class="meta">{stats_str}</text>')
-    
-    # Legend at bottom right
-    legend_x_end = width - padding_x
-    svg.append(f'  <text x="{legend_x_end - 90}" y="{footer_y}" class="meta">Less</text>')
-    for l_idx, lvl_color in enumerate(LEVELS):
-        lx = legend_x_end - 55 + (l_idx * 10)
-        svg.append(f'  <rect x="{lx}" y="{footer_y - 8}" width="8" height="8" rx="1.5" fill="{lvl_color}"/>')
-    svg.append(f'  <text x="{legend_x_end - 2}" y="{footer_y}" class="meta">More</text>')
+    # Footer Stats Line matching Image 2 ("X contributions in the last year")
+    footer_y = height - 12
+    total_str = f"{total_contribs:,} contributions in the last year"
+    svg.append(f'  <text x="{padding_left}" y="{footer_y}" class="total-text">{total_str}</text>')
     
     svg.append('</svg>')
     
