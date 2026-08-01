@@ -28,13 +28,9 @@
 
   <br>
 
-  <!-- Merged Living Contribution Graph & Snake Game -->
+  <!-- Living Contribution Graph & Snake Game with Month Headers & Hover Tooltips -->
   <h3><code>arnav-jain700@github ~ $ git log --contributions --snake</code></h3>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arnav-jain700/arnav-jain700/output/github-contribution-grid-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/arnav-jain700/arnav-jain700/output/github-contribution-grid-snake.svg" />
-    <img alt="GitHub Contribution Grid Snake" src="./graph.svg" width="860" />
-  </picture>
+  <img src="./graph.svg" width="860" alt="Living GitHub Contribution Graph with Snake & Month Labels" />
 
   <br><br>
 
