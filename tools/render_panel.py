@@ -68,11 +68,7 @@ def render_panel(output_path="sysinfo.svg", is_preview=False):
     
     y_curr += 20
     for idx, item in enumerate(SECTIONS):
-        delay = (idx * 0.08) + 0.05
         svg.append('  <g>')
-        if not is_preview:
-            svg.append(f'    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="{delay:.2f}s" fill="freeze"/>')
-            
         if item["type"] == "kv":
             svg.append(f'    <text x="{padding_x}" y="{y_curr}" class="key">{item["key"]}</text>')
             svg.append(f'    <text x="{padding_x + 95}" y="{y_curr}" class="val">{item["val"]}</text>')

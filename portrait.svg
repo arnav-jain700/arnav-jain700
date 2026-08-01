@@ -6,7 +6,7 @@
     .btn-yellow { fill: #ffbd2e; }
     .btn-green { fill: #27c93f; }
     .title { font-family: "Fira Code", monospace, sans-serif; font-size: 11px; fill: #8b949e; font-weight: 600; }
-    .ascii-text { font-family: "Fira Code", "Courier New", monospace; font-size: 9.0px; fill: #e6edf3; font-weight: 500; xml:space: preserve; }
+    .ascii-text { font-family: "Fira Code", "Courier New", monospace; font-size: 9.0px; fill: #7dcfff; font-weight: 500; xml:space: preserve; }
     .prompt { font-family: "Fira Code", monospace, sans-serif; font-size: 11px; fill: #7dcfff; font-weight: 600; }
     .cursor { fill: #7dcfff; }
   </style>
@@ -17,133 +17,35 @@
   <circle cx="46" cy="16" r="5" class="btn-green"/>
   <text x="220.0" y="20" text-anchor="middle" class="title">arnav-jain700:~$ cat portrait.asc</text>
   <g class="ascii-text">
-    <text x="16" y="54.2">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.00s" fill="freeze"/>
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&apos;.&#160;&#160;&#160;&#160;&#160;&apos;&apos;.&#160;&quot;!l&lt;{)|)}]}[[]][[[]]})(/jjt|1}]-+&lt;&gt;&gt;&gt;iii!lIIII
-    </text>
-    <text x="16" y="64.4">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.02s" fill="freeze"/>
-      `&apos;,:&quot;^^:!!il!,.`&quot;&apos;.&apos;`;+?(/[!:```^;&gt;iII!!I&lt;-_~&gt;&gt;i&gt;~~~&gt;&lt;&lt;&gt;ii!lIIII
-    </text>
-    <text x="16" y="74.6">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.04s" fill="freeze"/>
-      ...&apos;,,^,;i}[~_&quot;&#160;&apos;^...&quot;l&gt;+--+&quot;&#160;&#160;&#160;&#160;&#160;&apos;.&#160;&#160;&#160;&#160;&#160;&#160;`:;;;;!~++~~~~&lt;&gt;&gt;i!!!!
-    </text>
-    <text x="16" y="84.8">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.06s" fill="freeze"/>
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;^:`;;^^&quot;&apos;&apos;&apos;.&apos;&apos;&apos;``&quot;^.&#160;&#160;.&#160;&#160;&#160;..&#160;&#160;.&#160;&#160;&apos;:&gt;&lt;+-]]]?????-_+~&lt;&gt;&gt;
-    </text>
-    <text x="16" y="95.0">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.08s" fill="freeze"/>
-      &#160;&#160;&#160;&#160;&#160;.&#160;&#160;.&#160;&#160;`;!i&gt;I&#160;&#160;&apos;;I^&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;......&#160;&apos;I+_?}{{1))1{}[?++~~
-    </text>
-    <text x="16" y="105.2">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.10s" fill="freeze"/>
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;.&#160;.&apos;^,&apos;.&#160;&#160;&apos;``&apos;&#160;&#160;&#160;.&#160;&#160;&#160;&#160;&#160;&#160;.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;^:l_]{)))))1}?-?_~
-    </text>
-    <text x="16" y="115.4">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.12s" fill="freeze"/>
-      &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&apos;.&#160;&#160;&#160;&#160;&#160;...&#160;&#160;&#160;&apos;&quot;I,;I&quot;`&#160;&#160;&#160;&#160;&apos;`,Ii+~&gt;iI&gt;~&gt;iI;
-    </text>
-    <text x="16" y="125.6">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.14s" fill="freeze"/>
-      &apos;.......&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;...&#160;&#160;&#160;&#160;&#160;`:i+-]}1)(|)}]&gt;&apos;&#160;&#160;&apos;`:::,&apos;&quot;II;&gt;]
-    </text>
-    <text x="16" y="135.8">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.16s" fill="freeze"/>
-      .&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;..&#160;&#160;&#160;&#160;&#160;....&#160;&#160;&#160;&#160;&#160;.`&quot;I!~++[{)()}1tcYXYn\}+i&quot;&#160;&#160;&quot;i~-?{fY
-    </text>
-    <text x="16" y="146.0">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.18s" fill="freeze"/>
-      &#160;&#160;&apos;&quot;^^;:`.&#160;&#160;&#160;&#160;&#160;&#160;..&#160;&#160;&#160;&#160;&#160;&#160;.,~][)\/jucxr/)|tjnrrrucCLQQLzj\))[]/cUq
-    </text>
-    <text x="16" y="156.2">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.20s" fill="freeze"/>
-      :&gt;_]{]})[_&gt;:`^&apos;&#160;&#160;&#160;.^;&gt;&lt;_/YLUQpba#&amp;*h#*Y\frrxnuvccvucUOZwOJYcxxxY
-    </text>
-    <text x="16" y="166.4">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.22s" fill="freeze"/>
-      /(xrf/[_[{{[++&lt;!I&gt;?{{}/Ykobk*dQJXzzJQbBL/rtr\(\\f//\(uJ00OmOCf[L
-    </text>
-    <text x="16" y="176.6">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.24s" fill="freeze"/>
-      {}/|)|()[-?{11|\\)()]|OaMw0Xf[&gt;!I;l~_i)oLfx/{)(\n/f))/xcXQOLt_xY
-    </text>
-    <text x="16" y="186.8">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.26s" fill="freeze"/>
-      {tt\(){{(tjxccurtt\)]jaM0}!&lt;+&gt;I&quot;&apos;`&quot;,!!&quot;tkf\{|txn|nUXcx\]/JJX}tXQ
-    </text>
-    <text x="16" y="197.0">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.28s" fill="freeze"/>
-      rffjrxvzYJJYcXvurrjt\x#MYjzJCOqmCCZwZCJJqn(\rvXYxf{/juuxjr/+1cUC
-    </text>
-    <text x="16" y="207.2">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.30s" fill="freeze"/>
-      \txczzXzXcvuvcnjrnuvrtQh?CCq#&amp;M#ofa$@#kCjbfrrxXXUzf(xzUCLzj)/cnf
-    </text>
-    <text x="16" y="217.4">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.32s" fill="freeze"/>
-      /jncznvvxnnnnncuuunf]?c0^-+~[{{x-&#160;;nx/}&lt;)ztt/tUccUXuYCXJXzYQUj\f
-    </text>
-    <text x="16" y="227.6">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.34s" fill="freeze"/>
-      ruujnvffrn|/jxczzXQL?+}Y)&lt;?]1/n[[-&gt;{j)_~[1nXvxzzUUvcvUQXuJwOJnf-
-    </text>
-    <text x="16" y="237.8">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.36s" fill="freeze"/>
-      xvUXurjuvjnnnCCJLqmz?I^vOun\(/ud@##kur/1inZYxJLUCqCCYYvJUOodzcxj
-    </text>
-    <text x="16" y="248.0">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.38s" fill="freeze"/>
-      YXxt}(xjjncQZOCmdQvrnr1zpLX(JqJcvncYpwuJtYc1nOqwQOqpQYJp0UZLunCw
-    </text>
-    <text x="16" y="258.2">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.40s" fill="freeze"/>
-      u(_[/nxvncuucvvXujrcc|{/dqX/Xx]?|jt?f00OXUx1Udwhoh&amp;MpzCwZ0CuLp#o
-    </text>
-    <text x="16" y="268.4">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.42s" fill="freeze"/>
-      1+(nxYXrJ0ucznf1}/zcr)[]C*dQOU|-?[{)m8bJzOOpLw*ZZodU(111\)ftut\\
-    </text>
-    <text x="16" y="278.6">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.44s" fill="freeze"/>
-      xzvY0mwLzLCCqzr/fXrft{&gt;?fQ8BMobwZmh#ku)\/t|t\ff1\(--&gt;i;,;?[!i!~\
-    </text>
-    <text x="16" y="288.8">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.46s" fill="freeze"/>
-      (XQQQhdqLd0OLj|]I&quot;&apos;.&#160;`&gt;}/jJkMW&amp;&amp;B@&amp;Qj]~-/junr)/vUwuXcu}-|[+!Ii]]
-    </text>
-    <text x="16" y="299.0">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.48s" fill="freeze"/>
-      0c|z(po0QO0}&quot;~?+fu/tj?,,+(nLwkkkkqX(]]1[]1}{{?{()t\[1(]}\]}|}]}]
-    </text>
-    <text x="16" y="309.2">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.50s" fill="freeze"/>
-      YuUuLr|/tnYQL/xCLZooqLz)&gt;!?fJdkkqZ{}/)1][1{{()){[{}1}1/jrnt\jt()
-    </text>
-    <text x="16" y="319.4">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.52s" fill="freeze"/>
-      rf)I;.&#160;&#160;&#160;.,-cL(~)/fLakbamu|{}\nUCY+?mJvcx/jj()\//f/\||tucXuXJQJc
-    </text>
-    <text x="16" y="329.6">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.54s" fill="freeze"/>
-      &gt;I;!:&apos;&#160;&#160;&#160;&#160;&#160;&#160;&#160;+wz&quot;.&apos;,[n)[)11}-_+++~!I&gt;ii-~;l~[|(1{)}?[{-{\)(\/t/f
-    </text>
-    <text x="16" y="339.8">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.56s" fill="freeze"/>
-      /cQQCz\&lt;`.`&quot;:&quot;&gt;Zr;&apos;`&quot;^&#160;&#160;&quot;&lt;][]][{[_~!:&quot;^&quot;^.&#160;&#160;&quot;[\/)/((\\|ftj/|\/|\
-    </text>
-    <text x="16" y="350.0">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.58s" fill="freeze"/>
-      //tvCZqZuil+?[_(n{-&gt;!!iI&quot;^!?1({[1([~i;&apos;&#160;&apos;&quot;,,.`(fjf\\/ruxnjxuuxtn
-    </text>
-    <text x="16" y="360.2">
-      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="0.60s" fill="freeze"/>
-      |fnvJwbaoC]}1}}{zkhmf&gt;i??i,!+[{[]1tfttfnjjzmCcu/\)(][/|1)[[)\f\j
-    </text>
+    <text x="16" y="54.2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+    <text x="16" y="64.4">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+    <text x="16" y="74.6">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+    <text x="16" y="84.8">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+    <text x="16" y="95.0">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+    <text x="16" y="105.2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+    <text x="16" y="115.4">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;..</text>
+    <text x="16" y="125.6">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;...&#160;&#160;&#160;&#160;.....&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;..&#160;&#160;&#160;</text>
+    <text x="16" y="135.8">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;........&#160;&#160;&#160;&#160;..&#160;&#160;&#160;&#160;&#160;&#160;&#160;.....&#160;&#160;.&#160;&#160;&#160;&#160;&quot;!</text>
+    <text x="16" y="146.0">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;....&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;^:;I,:&gt;--+;^.&#160;&#160;&#160;&#160;&#160;..&#160;&#160;,+(tj</text>
+    <text x="16" y="156.2">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;...&#160;&#160;&#160;&#160;&#160;&#160;;+}){|jf\}-}][{(\trj/\?i:&apos;&#160;&#160;:&lt;\x/ju</text>
+    <text x="16" y="166.4">.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;...&#160;&#160;&#160;&#160;...&#160;&#160;&#160;&#160;.&apos;^`_0*M8$$$$$$8u[\\\|/tjjxvXcvf)--+1|tf\</text>
+    <text x="16" y="176.6">&#160;&#160;..&apos;``^`&apos;&quot;``&apos;.&#160;&#160;&#160;&#160;&#160;`,;&lt;~~z&amp;$$$BqYxtxvL%z|tt(\/jtt\xzXXYz\ixc1|c</text>
+    <text x="16" y="186.8">&quot;;!IIlI&quot;^;I,,^&apos;`^:&gt;+??]}_x$$qf|&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;I8crtfrnnccunxxULY{jUYvQw</text>
+    <text x="16" y="197.0">&gt;~+!~!l&quot;~~&lt;&lt;~_-}1{))))(({c$%f(cYJz/tnnr(pLfnXUCcczUUzuYXtcLOL0C0</text>
+    <text x="16" y="207.2">--]-?]&gt;;-])\/tft/\//|/tff/oXfk&amp;$$$oY$$$8uOYXYL0ZCvJZwpZUnL0CUQOh</text>
+    <text x="16" y="217.4">))1[[}]1\frxrrjrrxxnnnxx1?C1&quot;&gt;+1(}`&#160;+f(&gt;IcYUYOZwdqbhkbpbawLCOZqo</text>
+    <text x="16" y="227.6">(()1|juuncvvvnccnucYXzUJ{;+Y{1{}juUcvu/-i(qm0wphakkaabh8#dwCQCLq</text>
+    <text x="16" y="237.8">X0bccXczYYXxxzzzUQ0QLOJr\[?kbZcddMMaM*bmcJbUmahk*#obk*bMhQObb*o#</text>
+    <text x="16" y="248.0">qk@LzCJCYjfnXYYJJLCYYuttf\)p$Mh$pccXnQ%MohOYh*&amp;8B$%da*p0XZhohkbZ</text>
+    <text x="16" y="258.2">M8h)LLwzvrYC0QCZLLCct|nxt)-z$$$$BkqwdB$8hhkhq*wwqJ{--?+?-}++!+|/</text>
+    <text x="16" y="268.4">$@#C8CUfzO0mdpQmZpqcf[?!!;;xh@@$$$$$$kj(xzzcnrfUr11+&quot;,&gt;&lt;&quot;&apos;,&lt;I!+1</text>
+    <text x="16" y="278.6">LZdZq0XXCXCzkoZwZ\~-i_&lt;i+,.~v#$$$@$8Y[_+-(/t}]/rY(){l_&lt;;I^:,,&quot;I!</text>
+    <text x="16" y="288.8">qqa*ZmOCLJYUvj/rzvt1cZb*hZn~:?Q%$$BUl~!!,I;;lll;Ill!&lt;~~&gt;i&gt;!Il!!i</text>
+    <text x="16" y="299.0">dd*a0LUjj\i&apos;&#160;&#160;&#160;&#160;`+xn&gt;_}/w*ooz?,;}nu?&apos;\(--!iilii&gt;&lt;&gt;&gt;i&lt;_-+-]]__+-]</text>
+    <text x="16" y="309.2">Jzxjjj&lt;i+}f\_^&#160;&#160;&#160;&#160;&#160;}Q&apos;&#160;&#160;&apos;&lt;^``&quot;^&#160;&#160;&#160;&#160;&#160;.&#160;&#160;&apos;&quot;&apos;.&apos;:!I;l:II:!lll!!!!i&gt;&gt;</text>
+    <text x="16" y="319.4">!+&gt;i&gt;]/cLmphawf`&#160;.&apos;&#160;-?&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;..&apos;..&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&quot;i!!!i&gt;+~++++&lt;~-?[?</text>
+    <text x="16" y="329.6">;!!}jxuzYC0wa&amp;$Q^..&apos;&#160;tqm_...&#160;&#160;&#160;&#160;&#160;&#160;`&apos;,~&lt;-{_)c/)llI;:i!!IIi~&gt;~_~+]</text>
   </g>
   <text x="16" y="448" class="prompt">arnav-jain700:~$ whoami</text>
-  <rect x="181" y="439" width="7" height="11" class="cursor">
-    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
-  </rect>
+  <rect x="181" y="439" width="7" height="11" class="cursor"/>
 </svg>

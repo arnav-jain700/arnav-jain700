@@ -66,40 +66,6 @@
 
   <br>
 
-  <!-- WakaTime & Spotify Music Section -->
-  <h3><code>arnav-jain700@github ~ $ cat telemetry.json</code></h3>
-  <p align="center">
-    <img src="https://github-readme-stats.vercel.app/api/wakatime?username=arnav-jain700&theme=tokyonight&hide_border=true&layout=compact" height="175" alt="WakaTime Stats" />
-    &nbsp;&nbsp;
-    <a href="https://spotify.com" target="_blank">
-      <img src="https://spotify-github-readme.vercel.app/api/spotify?spotify_user_id=arnav-jain700" height="175" alt="Spotify Now Playing" />
-    </a>
-  </p>
-
-  <br>
-
-  <!-- GitHub Profile Trophies -->
-  <h3><code>arnav-jain700@github ~ $ ls ~/trophies</code></h3>
-  <p align="center">
-    <img src="https://github-profile-trophy.vercel.app/?username=arnav-jain700&theme=tokyonight&no-bg=true&no-frame=true&column=6" width="860" alt="GitHub Trophies" />
-  </p>
-
-  <br>
-
-  <!-- Featured Projects Showcase -->
-  <h3><code>arnav-jain700@github ~ $ ls ~/featured-projects</code></h3>
-  <p align="center">
-    <a href="https://github.com/arnav-jain700/arnav-jain700">
-      <img src="https://github-readme-stats.vercel.app/api/pin/?username=arnav-jain700&repo=arnav-jain700&theme=tokyonight&hide_border=true" width="410" alt="Living Terminal Profile" />
-    </a>
-    &nbsp;
-    <a href="https://github.com/arnav-jain700/High-Performance-Navigation-System">
-      <img src="https://github-readme-stats.vercel.app/api/pin/?username=arnav-jain700&repo=High-Performance-Navigation-System&theme=tokyonight&hide_border=true" width="410" alt="High Performance Navigation System" />
-    </a>
-  </p>
-
-  <br>
-
   <!-- Tech Stack Grid -->
   <h3><code>arnav-jain700@github ~ $ cat stack.json</code></h3>
 
@@ -154,24 +120,16 @@
 
   <br><br>
 
-  <!-- Developer Joke Card -->
-  <h3><code>arnav-jain700@github ~ $ curl -s https://api.devjokes.io/random</code></h3>
-  <p align="center">
-    <img src="https://readme-jokes.vercel.app/api?theme=tokyonight&bg_color=0d1117&font_color=7dcfff" alt="Developer Joke" />
-  </p>
-
-  <br>
-
   <!-- Recent GitHub Activity Feed -->
   <div align="left" style="width: 860px;">
     <h3><code>⚡ Recent GitHub Activity</code></h3>
 
 <!--START_SECTION:activity-->
+- 🚀 Created branch `main` in [arnav-jain700/arnav-jain700](https://github.com/arnav-jain700/arnav-jain700)
 - 🚀 Created branch `main` in [arnav-jain700/Autism-Spectrum-Diagnosis](https://github.com/arnav-jain700/Autism-Spectrum-Diagnosis)
 - ⭐ Starred repository [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
 - ⭐ Starred repository [practical-tutorials/project-based-learning](https://github.com/practical-tutorials/project-based-learning)
 - ⭐ Starred repository [Asabeneh/30-Days-Of-Python](https://github.com/Asabeneh/30-Days-Of-Python)
-- 🚀 Created branch `main` in [arnav-jain700/High-Performance-Navigation-System](https://github.com/arnav-jain700/High-Performance-Navigation-System)
 <!--END_SECTION:activity-->
 
   </div>

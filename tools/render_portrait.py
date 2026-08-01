@@ -3,7 +3,7 @@ import os
 import numpy as np
 from PIL import Image
 
-# Ramp matching Image 2 density style (dark features -> dense characters, light background -> dots/spaces)
+# Density ramp matching classic ASCII terminal style
 GLYPHS = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
 
 def image_to_ascii(image_path, width=54, aspect_ratio=0.52):
@@ -45,12 +45,8 @@ def image_to_ascii(image_path, width=54, aspect_ratio=0.52):
         lines.append("".join(row_chars))
     return lines
 
-def generate_svg(ascii_lines, output_path="portrait.svg", accent_color="#e6edf3", bg_color="#0d1117", border_color="#30363d"):
-    num_rows = len(ascii_lines)
-    num_cols = len(ascii_lines[0]) if num_rows > 0 else 0
-    
+def generate_svg(ascii_lines, output_path="portrait.svg", accent_color="#7dcfff", bg_color="#0d1117", border_color="#30363d"):
     font_size = 9.0
-    char_width = 5.4
     line_height = 10.2
     padding_x = 16
     padding_y = 14
@@ -84,26 +80,20 @@ def generate_svg(ascii_lines, output_path="portrait.svg", accent_color="#e6edf3"
     svg.append('  <circle cx="46" cy="16" r="5" class="btn-green"/>')
     svg.append(f'  <text x="{width/2}" y="20" text-anchor="middle" class="title">arnav-jain700:~$ cat portrait.asc</text>')
     
-    # ASCII lines
+    # ASCII lines (Static rendering for 100% GitHub proxy compatibility)
     svg.append('  <g class="ascii-text">')
     y_start = header_h + padding_y
     for i, line in enumerate(ascii_lines):
         y_pos = y_start + (i + 1) * line_height - 2
         if y_pos > height - footer_h - 10:
             break
-        start_delay = i * 0.02
-        svg.append(f'    <text x="{padding_x}" y="{y_pos:.1f}">')
-        svg.append(f'      <animate attributeName="opacity" values="0;1" dur="0.15s" begin="{start_delay:.2f}s" fill="freeze"/>')
-        svg.append(f'      {line}')
-        svg.append(f'    </text>')
+        svg.append(f'    <text x="{padding_x}" y="{y_pos:.1f}">{line}</text>')
     svg.append('  </g>')
     
-    # Bottom prompt line with blinking cursor
+    # Bottom prompt line with cursor
     prompt_y = height - 12
     svg.append(f'  <text x="{padding_x}" y="{prompt_y}" class="prompt">arnav-jain700:~$ whoami</text>')
-    svg.append(f'  <rect x="{padding_x + 165}" y="{prompt_y - 9}" width="7" height="11" class="cursor">')
-    svg.append('    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>')
-    svg.append('  </rect>')
+    svg.append(f'  <rect x="{padding_x + 165}" y="{prompt_y - 9}" width="7" height="11" class="cursor"/>')
     
     svg.append('</svg>')
     
@@ -118,8 +108,9 @@ if __name__ == "__main__":
     out_svg = sys.argv[2] if len(sys.argv) > 2 else "portrait.svg"
     
     if not os.path.exists(img_path):
-        print(f"Error: {img_path} not found. Please run clean_photo.py first.")
-        sys.exit(1)
+        print(f"Error: {img_path} not found. Running clean_photo.py first...")
+        from clean_photo import clean_photo
+        clean_photo("assets/my-photo.png", img_path)
         
     ascii_art = image_to_ascii(img_path, width=64)
     generate_svg(ascii_art, output_path=out_svg)

@@ -22,61 +22,49 @@
   <text x="22" y="58" class="user-prompt">arnav@github</text>
   <line x1="22" y1="70" x2="458" y2="70" stroke="#30363d" stroke-width="1"/>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.05s" fill="freeze"/>
     <text x="22" y="90" class="key">Now</text>
     <text x="117" y="90" class="val">Software Engineer & Builder</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.13s" fill="freeze"/>
     <text x="22" y="112" class="key">Prev</text>
     <text x="117" y="112" class="val">Full-Stack Engineer</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.21s" fill="freeze"/>
     <text x="22" y="134" class="key">Also</text>
     <text x="117" y="134" class="val">Open-Source Contributor</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.29s" fill="freeze"/>
     <text x="22" y="156" class="key">Edu</text>
     <text x="117" y="156" class="val">B.Tech Computer Science</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.37s" fill="freeze"/>
     <text x="22" y="184" class="section-title">- Stack</text>
     <line x1="82.5" y1="180" x2="458" y2="180" class="divider"/>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.45s" fill="freeze"/>
     <text x="22" y="204" class="key">Frontend</text>
     <text x="117" y="204" class="val">React, Next.js, TypeScript, Tailwind</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.53s" fill="freeze"/>
     <text x="22" y="226" class="key">Backend</text>
     <text x="117" y="226" class="val">Node.js, Python, FastAPI, Postgres</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.61s" fill="freeze"/>
     <text x="22" y="248" class="key">AI / ML</text>
     <text x="117" y="248" class="val">OpenAI API, LangChain, PyTorch</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.69s" fill="freeze"/>
     <text x="22" y="270" class="key">Cloud</text>
     <text x="117" y="270" class="val">AWS, Docker, Vercel, Linux</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.77s" fill="freeze"/>
     <text x="22" y="298" class="section-title">- Highlights</text>
     <line x1="120.0" y1="294" x2="458" y2="294" class="divider"/>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.85s" fill="freeze"/>
     <text x="22" y="318" class="bullet-text">• Built Living Terminal GitHub Profile README</text>
   </g>
   <g>
-    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="0.93s" fill="freeze"/>
     <text x="22" y="338" class="bullet-text">• Active developer & open-source contributor</text>
   </g>
 </svg>
