@@ -28,17 +28,12 @@
 
   <br>
 
-  <!-- Living Contribution Graph -->
-  <h3><code>arnav-jain700@github ~ $ git log --contributions</code></h3>
-  <img src="./graph.svg" width="860" alt="Living GitHub Contribution Graph" />
-
-  <br><br>
-
-  <!-- Contribution Snake Animation -->
+  <!-- Merged Living Contribution Graph & Snake Game -->
+  <h3><code>arnav-jain700@github ~ $ git log --contributions --snake</code></h3>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/arnav-jain700/arnav-jain700/output/github-contribution-grid-snake-dark.svg" />
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/arnav-jain700/arnav-jain700/output/github-contribution-grid-snake.svg" />
-    <img alt="GitHub Contribution Grid Snake" src="https://raw.githubusercontent.com/arnav-jain700/arnav-jain700/output/github-contribution-grid-snake-dark.svg" width="860" />
+    <img alt="GitHub Contribution Grid Snake" src="./graph.svg" width="860" />
   </picture>
 
   <br><br>

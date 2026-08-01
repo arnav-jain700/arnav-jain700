@@ -42,6 +42,8 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
     svg.append(f'    .bg {{ fill: {bg_color}; stroke: {border_color}; stroke-width: 1px; rx: 10px; }}')
     svg.append(f'    .axis-text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 10px; fill: {text_color}; font-weight: 500; }}')
     svg.append(f'    .total-text {{ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13px; fill: {white_text}; font-weight: 700; }}')
+    svg.append('    .snake-trail { stroke: #38bdf8; stroke-width: 2px; stroke-linecap: round; stroke-linejoin: round; fill: none; opacity: 0.6; stroke-dasharray: 4 4; }')
+    svg.append('    .snake-head { fill: #7dcfff; filter: drop-shadow(0 0 4px #7dcfff); }')
     svg.append('  </style>')
     
     # Background
@@ -68,7 +70,9 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
                 svg.append(f'  <text x="{x_pos:.1f}" y="{padding_top - 10}" class="axis-text">{m_name}</text>')
                 last_month = m_name
 
-    # Render grid cells (Static 100% visible on GitHub)
+    active_coords = []
+
+    # Render grid cells
     for i, d in enumerate(days):
         week_idx = i // 7
         day_idx = i % 7
@@ -80,6 +84,9 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
         level = max(0, min(4, level))
         color = LEVELS[level]
         
+        if level > 0:
+            active_coords.append((x + cell_size/2, y + cell_size/2))
+        
         date_str = d.get("date", "")
         count = d.get("count", 0)
         tooltip = f"{count} contributions on {date_str}"
@@ -87,6 +94,17 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
         svg.append(f'  <rect x="{x:.1f}" y="{y:.1f}" width="{cell_size}" height="{cell_size}" rx="2" fill="{color}">')
         svg.append(f'    <title>{tooltip}</title>')
         svg.append(f'  </rect>')
+
+    # Snake motion path across active contribution cells
+    if len(active_coords) >= 2:
+        # Take a subset of active coordinates for snake path
+        path_pts = active_coords[::max(1, len(active_coords)//25)]
+        path_d = f"M {path_pts[0][0]:.1f},{path_pts[0][1]:.1f} " + " ".join([f"L {cx:.1f},{cy:.1f}" for cx, cy in path_pts[1:]])
+        
+        svg.append(f'  <path d="{path_d}" class="snake-trail"/>')
+        svg.append(f'  <circle r="4" class="snake-head">')
+        svg.append(f'    <animateMotion path="{path_d}" dur="10s" repeatCount="indefinite"/>')
+        svg.append(f'  </circle>')
         
     # Footer Stats Line
     footer_y = height - 12
@@ -99,7 +117,7 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(svg))
         
-    print(f"Generated contribution graph SVG successfully: {output_path}")
+    print(f"Generated contribution graph with snake animation successfully: {output_path}")
 
 if __name__ == "__main__":
     jpath = sys.argv[1] if len(sys.argv) > 1 else "assets/contributions.json"
