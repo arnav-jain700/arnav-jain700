@@ -13,7 +13,7 @@
       <img src="https://img.shields.io/badge/Status-Building_%F0%9F%9A%80-7dcfff?style=for-the-badge&logoWidth=10" alt="Status" />
     </a>
     &nbsp;
-    <a href="https://linkedin.com/in/arnav-jain700" target="_blank">
+    <a href="https://www.linkedin.com/in/arnav-jain007/" target="_blank">
       <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
     </a>
     &nbsp;
@@ -43,25 +43,18 @@
 
   <br><br>
 
-  <!-- Terminal Dual Panel (whoami) -->
+  <!-- Terminal System Info Panel (whoami) -->
   <h3><code>arnav-jain700@github ~ $ whoami</code></h3>
   <p align="center">
-    <img src="./portrait.svg" width="440" alt="ASCII Portrait Terminal" />
-    &nbsp;
-    <img src="./sysinfo.svg" width="480" alt="Neofetch Terminal Panel" />
+    <img src="./sysinfo.svg" width="540" alt="Neofetch Terminal Panel" />
   </p>
 
   <br>
 
-  <!-- GitHub Stats & Streak Showcase -->
+  <!-- Self-Contained Terminal Stats & Languages Showcase -->
   <h3><code>arnav-jain700@github ~ $ neofetch --stats</code></h3>
   <p align="center">
-    <img src="https://github-readme-stats.vercel.app/api?username=arnav-jain700&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true" height="175" alt="GitHub Stats" />
-    &nbsp;&nbsp;
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=arnav-jain700&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" height="175" alt="Top Languages" />
-  </p>
-  <p align="center">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=arnav-jain700&theme=tokyonight&hide_border=true" height="165" alt="Streak Stats" />
+    <img src="./stats.svg" width="540" alt="GitHub Stats & Top Languages" />
   </p>
 
   <br>

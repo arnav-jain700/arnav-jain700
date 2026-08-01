@@ -3,7 +3,7 @@ import os
 import json
 from datetime import datetime
 
-# GitHub classic green palette as shown in Image 2
+# GitHub classic green palette
 LEVELS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
 
 def render_graph(json_path="assets/contributions.json", output_path="graph.svg"):
@@ -68,7 +68,7 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
                 svg.append(f'  <text x="{x_pos:.1f}" y="{padding_top - 10}" class="axis-text">{m_name}</text>')
                 last_month = m_name
 
-    # Render grid cells
+    # Render grid cells (Static 100% visible on GitHub)
     for i, d in enumerate(days):
         week_idx = i // 7
         day_idx = i % 7
@@ -83,14 +83,12 @@ def render_graph(json_path="assets/contributions.json", output_path="graph.svg")
         date_str = d.get("date", "")
         count = d.get("count", 0)
         tooltip = f"{count} contributions on {date_str}"
-        delay = week_idx * 0.015
         
         svg.append(f'  <rect x="{x:.1f}" y="{y:.1f}" width="{cell_size}" height="{cell_size}" rx="2" fill="{color}">')
-        svg.append(f'    <animate attributeName="opacity" values="0;1" dur="0.2s" begin="{delay:.3f}s" fill="freeze"/>')
         svg.append(f'    <title>{tooltip}</title>')
         svg.append(f'  </rect>')
         
-    # Footer Stats Line matching Image 2 ("X contributions in the last year")
+    # Footer Stats Line
     footer_y = height - 12
     total_str = f"{total_contribs:,} contributions in the last year"
     svg.append(f'  <text x="{padding_left}" y="{footer_y}" class="total-text">{total_str}</text>')

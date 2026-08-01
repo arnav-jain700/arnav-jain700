@@ -26,9 +26,11 @@ jobs:
 
       - run: python tools/render_panel.py sysinfo.svg
 
+      - run: python tools/render_stats.py
+
       - run: python tools/pull_activity.py arnav-jain700 README.md
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "auto: refresh contribution graph & activity [skip ci]"
-          file_pattern: "assets/contributions.json graph.svg sysinfo.svg README.md"
+          file_pattern: "assets/contributions.json graph.svg sysinfo.svg stats.svg README.md"

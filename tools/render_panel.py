@@ -1,5 +1,6 @@
 import sys
 import os
+import html
 
 SECTIONS = [
     {"type": "kv", "key": "Now", "val": "Software Engineer & Builder"},
@@ -17,8 +18,8 @@ SECTIONS = [
 ]
 
 def render_panel(output_path="sysinfo.svg", is_preview=False):
-    width = 480
-    height = 460
+    width = 540
+    height = 440
     header_height = 32
     padding_x = 22
     
@@ -70,18 +71,21 @@ def render_panel(output_path="sysinfo.svg", is_preview=False):
     for idx, item in enumerate(SECTIONS):
         svg.append('  <g>')
         if item["type"] == "kv":
-            svg.append(f'    <text x="{padding_x}" y="{y_curr}" class="key">{item["key"]}</text>')
-            svg.append(f'    <text x="{padding_x + 95}" y="{y_curr}" class="val">{item["val"]}</text>')
+            key_esc = html.escape(item["key"])
+            val_esc = html.escape(item["val"])
+            svg.append(f'    <text x="{padding_x}" y="{y_curr}" class="key">{key_esc}</text>')
+            svg.append(f'    <text x="{padding_x + 95}" y="{y_curr}" class="val">{val_esc}</text>')
             y_curr += 22
         elif item["type"] == "header":
             y_curr += 6
-            svg.append(f'    <text x="{padding_x}" y="{y_curr}" class="section-title">{item["title"]}</text>')
-            # Dash divider extending to right edge
+            t_esc = html.escape(item["title"])
+            svg.append(f'    <text x="{padding_x}" y="{y_curr}" class="section-title">{t_esc}</text>')
             title_len = len(item["title"]) * 7.5
             svg.append(f'    <line x1="{padding_x + title_len + 8}" y1="{y_curr - 4}" x2="{width - padding_x}" y2="{y_curr - 4}" class="divider"/>')
             y_curr += 20
         elif item["type"] == "bullet":
-            svg.append(f'    <text x="{padding_x}" y="{y_curr}" class="bullet-text">{item["text"]}</text>')
+            txt_esc = html.escape(item["text"])
+            svg.append(f'    <text x="{padding_x}" y="{y_curr}" class="bullet-text">{txt_esc}</text>')
             y_curr += 20
             
         svg.append('  </g>')
