@@ -109,11 +109,11 @@
     <h3><code>⚡ Recent GitHub Activity</code></h3>
 
 <!--START_SECTION:activity-->
+- ⭐ Starred repository [rohitg00/ai-engineering-from-scratch](https://github.com/rohitg00/ai-engineering-from-scratch)
 - 🚀 Created branch `main` in [arnav-jain700/arnav-jain700](https://github.com/arnav-jain700/arnav-jain700)
 - 🚀 Created branch `main` in [arnav-jain700/Autism-Spectrum-Diagnosis](https://github.com/arnav-jain700/Autism-Spectrum-Diagnosis)
 - ⭐ Starred repository [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x)
 - ⭐ Starred repository [practical-tutorials/project-based-learning](https://github.com/practical-tutorials/project-based-learning)
-- ⭐ Starred repository [Asabeneh/30-Days-Of-Python](https://github.com/Asabeneh/30-Days-Of-Python)
 <!--END_SECTION:activity-->
 
   </div>
