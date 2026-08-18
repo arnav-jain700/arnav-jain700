@@ -21,7 +21,7 @@
   <text x="24" y="95" class="stat-label">Total Stars Earned:</text>
   <text x="200" y="95" class="stat-val">0</text>
   <text x="24" y="125" class="stat-label">Followers:</text>
-  <text x="200" y="125" class="stat-val">0</text>
+  <text x="200" y="125" class="stat-val">2</text>
   <line x1="260" y1="45" x2="260" y2="180" stroke="#30363d" stroke-width="1"/>
   <text x="280" y="65" class="stat-label">Top Languages:</text>
   <text x="280" y="92" class="lang-name">C++</text>
