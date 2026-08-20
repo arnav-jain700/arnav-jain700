@@ -17,7 +17,7 @@
   <circle cx="46" cy="16" r="5" class="btn-green"/>
   <text x="270.0" y="20" text-anchor="middle" class="title">arnav-jain700:~$ neofetch --stats</text>
   <text x="24" y="65" class="stat-label">Public Repositories:</text>
-  <text x="200" y="65" class="stat-val">6</text>
+  <text x="200" y="65" class="stat-val">8</text>
   <text x="24" y="95" class="stat-label">Total Stars Earned:</text>
   <text x="200" y="95" class="stat-val">0</text>
   <text x="24" y="125" class="stat-label">Followers:</text>
@@ -36,7 +36,7 @@
   <text x="280" y="158" class="lang-name">Java</text>
   <rect x="380" y="149" width="19" height="8" rx="3" fill="#7dcfff"/>
   <text x="404" y="158" class="stat-val" font-size="10">17%</text>
-  <text x="280" y="180" class="lang-name">JavaScript</text>
+  <text x="280" y="180" class="lang-name">TypeScript</text>
   <rect x="380" y="171" width="19" height="8" rx="3" fill="#7dcfff"/>
   <text x="404" y="180" class="stat-val" font-size="10">17%</text>
 </svg>
