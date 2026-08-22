@@ -109,10 +109,9 @@
     <h3><code>⚡ Recent GitHub Activity</code></h3>
 
 <!--START_SECTION:activity-->
-- 🚀 Building full-stack web applications & AI agent systems
-- 🔨 Created `live_github_terminal` dynamic SVG contribution engine
-- ⭐ Contributing to open-source developer tooling & modern web apps
-- ⚡ Automating GitHub stats, graphs, & profile workflows with GitHub Actions
+- 🚀 Created branch `development` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
+- 🚀 Created branch `staging` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
+- 🚀 Created branch `main` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
 <!--END_SECTION:activity-->
 
   </div>
