@@ -109,6 +109,7 @@
     <h3><code>⚡ Recent GitHub Activity</code></h3>
 
 <!--START_SECTION:activity-->
+- 🚀 Created branch `main` in [arnav-jain700/LexiSort](https://github.com/arnav-jain700/LexiSort)
 - 🚀 Created branch `development` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
 - 🚀 Created branch `staging` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
 - 🚀 Created branch `main` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
