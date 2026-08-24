@@ -109,10 +109,10 @@
     <h3><code>⚡ Recent GitHub Activity</code></h3>
 
 <!--START_SECTION:activity-->
+- ⭐ Starred repository [rohitg00/agentmemory](https://github.com/rohitg00/agentmemory)
 - 🚀 Created branch `main` in [arnav-jain700/LexiSort](https://github.com/arnav-jain700/LexiSort)
 - 🚀 Created branch `development` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
 - 🚀 Created branch `staging` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
-- 🚀 Created branch `main` in [arnav-jain700/git-journey](https://github.com/arnav-jain700/git-journey)
 <!--END_SECTION:activity-->
 
   </div>
