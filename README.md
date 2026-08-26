@@ -109,10 +109,7 @@
     <h3><code>⚡ Recent GitHub Activity</code></h3>
 
 <!--START_SECTION:activity-->
-- 🚀 Building full-stack web applications & AI agent systems
-- 🔨 Created `live_github_terminal` dynamic SVG contribution engine
-- ⭐ Contributing to open-source developer tooling & modern web apps
-- ⚡ Automating GitHub stats, graphs, & profile workflows with GitHub Actions
+- 🚀 Created branch `main` in [arnav-jain700/niharika-s_portfolio](https://github.com/arnav-jain700/niharika-s_portfolio)
 <!--END_SECTION:activity-->
 
   </div>
