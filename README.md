@@ -110,7 +110,6 @@
 
 <!--START_SECTION:activity-->
 - 🚀 Created branch `main` in [arnav-jain700/aditi-portfolio](https://github.com/arnav-jain700/aditi-portfolio)
-- 🚀 Created branch `main` in [arnav-jain700/harkeerat-portfolio](https://github.com/arnav-jain700/harkeerat-portfolio)
 <!--END_SECTION:activity-->
 
   </div>
